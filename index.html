@@ -55,34 +55,6 @@
     <p>Web Developer | Aspiring Systems Engineer</p>
   </section>
 
-  <!-- Header -->
-  <header>
-    <div class="container header-inner">
-      <h1>Daniel Morales</h1>
-      <p class="subtitle">Aspiring Systems Engineer & Web Developer</p>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="#welcome-section">Welcome</a></li>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#languages">Languages</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#interests">Interests</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            <a id="profile-link" href="https://github.com/CodeNomad-01" target="_blank" rel="noopener">
-              GitHub
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- Theme toggle can be added here if desired -->
-      <!-- <button id="theme-toggle">Toggle Theme</button> -->
-    </div>
-  </header>
-
   <!-- About Me -->
   <section id="about">
     <div class="container">
@@ -159,14 +131,7 @@
     <div class="container">
       <h2>Projects</h2>
       <div id="projects-list">
-        <!-- At least one .project-tile with a link is required -->
-        <div class="project-tile">
-          <a href="https://github.com/CodeNomad-01/Single-Page-CV" target="_blank" rel="noopener">
-            Single Page CV – HTML & CSS
-          </a>
-          <p>A minimal and responsive personal CV made entirely with HTML and CSS.</p>
-        </div>
-        <!-- Additional .project-tile blocks can be added similarly -->
+
       </div>
     </div>
   </section>
@@ -197,17 +162,6 @@
           https://github.com/CodeNomad-01
         </a>
       </p>
-      <!-- Optional contact form:
-      <form action="YOUR_FORM_ENDPOINT" method="POST">
-        <label for="contact-name">Name</label>
-        <input type="text" id="contact-name" name="name" required>
-        <label for="contact-email">Email</label>
-        <input type="email" id="contact-email" name="email" required>
-        <label for="contact-message">Message</label>
-        <textarea id="contact-message" name="message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      -->
     </div>
   </section>
 
@@ -217,55 +171,7 @@
       <p>&copy; 2025 Daniel Morales. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- Script to load GitHub repos dynamically (optional) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const username = "CodeNomad-01";
-      const projectsContainer = document.getElementById("projects-list");
-      const maxRepos = 10;
-
-      fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=${maxRepos}`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error("GitHub API request failed");
-          }
-          return response.json();
-        })
-        .then(repos => {
-          // Clear existing placeholders except the first static .project-tile if desired
-          // Here we clear all and re-add only non-forks dynamically; if you want to keep the static tile, adjust accordingly.
-          projectsContainer.innerHTML = "";
-          if (repos.length === 0) {
-            projectsContainer.innerHTML = "<p>No repositories found.</p>";
-            return;
-          }
-          repos.forEach(repo => {
-            if (repo.fork) return;
-            const div = document.createElement("div");
-            div.className = "project-tile";
-            const link = document.createElement("a");
-            link.href = repo.html_url;
-            link.target = "_blank";
-            link.rel = "noopener";
-            link.textContent = repo.name;
-            div.appendChild(link);
-            if (repo.description) {
-              const p = document.createElement("p");
-              p.textContent = repo.description;
-              div.appendChild(p);
-            }
-            projectsContainer.appendChild(div);
-          });
-          if (!projectsContainer.hasChildNodes()) {
-            projectsContainer.innerHTML = "<p>No non-fork repositories to display.</p>";
-          }
-        })
-        .catch(error => {
-          console.error(error);
-          projectsContainer.innerHTML = "<p>Unable to load projects at this time.</p>";
-        });
-    });
-  </script>
+  <!-- Script to load GitHub repos dynamically -->
+  <script src="findRepo.js"></script>
 </body>
 </html>

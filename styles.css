@@ -36,6 +36,7 @@ body {
   background-color: var(--bg-alt);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
   z-index: 1000;
+  padding: 1rem;
 }
 
 #navbar .nav-list {
@@ -47,6 +48,7 @@ body {
 
 #navbar .nav-list li {
   margin: 0 var(--spacing);
+  margin-top: 10px;
 }
 
 #navbar .nav-list a {
