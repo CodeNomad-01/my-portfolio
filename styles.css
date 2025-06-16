@@ -1,0 +1,234 @@
+:root {
+  --bg-color: #121212;
+  --bg-alt: #1e1e1e;
+  --text-color: #e0e0e0;
+  --accent-color: #00ffe7;
+  --accent-hover: #33fff0;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --max-width: 1000px;
+  --spacing: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+/* Navbar */
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--bg-alt);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+#navbar .nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar .nav-list li {
+  margin: 0 var(--spacing);
+}
+
+#navbar .nav-list a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+#navbar .nav-list a:hover,
+#navbar .nav-list a:focus {
+  color: var(--accent-hover);
+}
+
+/* Offset for fixed navbar */
+body {
+  padding-top: 60px; /* adjust if navbar height changes */
+}
+
+/* Welcome Section */
+#welcome-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  padding: var(--spacing);
+}
+
+#welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+#welcome-section p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+/* Section Headings */
+section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing);
+  color: var(--accent-color);
+  text-align: center;
+}
+
+/* About, Experience, Education, Skills, Languages, Interests, Contact */
+section {
+  padding: 4rem 0;
+  background-color: var(--bg-color);
+}
+
+section:nth-of-type(even) {
+  background-color: var(--bg-alt);
+}
+
+.job-item, .education-item, .skill-list, .language-list {
+  margin-top: 1rem;
+}
+
+.job-item h3, .education-item h3 {
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+
+.job-item .company, .education-item .institution {
+  font-style: italic;
+  color: var(--accent-color);
+}
+
+.job-item .period, .education-item .period {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.skill-list, .language-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-list li, .language-list li {
+  background-color: #2a2a2a;
+  margin: 0.3rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Projects */
+#projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.project-tile {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-tile a {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.project-tile a:hover,
+.project-tile a:focus {
+  color: var(--accent-hover);
+}
+
+.project-tile p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Contact */
+#contact p {
+  margin: 0.5rem 0;
+}
+
+#contact a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+#contact a:hover,
+#contact a:focus {
+  color: var(--accent-hover);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-alt);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  #welcome-section h1 {
+    font-size: 2rem;
+  }
+  section h2 {
+    font-size: 1.6rem;
+  }
+  .job-item h3, .education-item h3 {
+    font-size: 1.2rem;
+  }
+  #navbar .nav-list {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  #welcome-section h1 {
+    font-size: 1.8rem;
+  }
+  #navbar .nav-list li {
+    margin: 0.3rem;
+  }
+  .project-tile {
+    padding: 0.8rem;
+  }
+}
